@@ -160,7 +160,7 @@ license that can be found in the LICENSE file.
     // For that reason, we're manually iterating these nodes.
     Polymer('x-select-editor', {
       metaChanged: function() {
-        this.options = this.meta.options;
+        this.options = this.meta.options || [];
         // allow template to generate options before setting value
         this.asyncMethod(function() {
           this.$.select.value = this.workingValue;
