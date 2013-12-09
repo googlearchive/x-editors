@@ -65,9 +65,19 @@ license that can be found in the LICENSE file.
   </template>
   <script>
     Polymer('x-string-editor', {
-      type: "text",
+      type: 'text',
       focus: function() {
         this.$.input.focus();
+      }
+    });
+  </script>
+</polymer-element>
+
+<polymer-element name="x-number-editor" extends="x-string-editor">
+<script>
+    Polymer('x-number-editor', {
+      format: function(value) {
+        return Number(value);
       }
     });
   </script>
