@@ -108,15 +108,17 @@ license that can be found in the LICENSE file.
       if (!color || color.substr(0, 1) === "#") {
         return color;
       }
-      var nums = /(.*?)rgb\((\d+),\s*(\d+),\s*(\d+)\)/i.exec(color),
-          r = parseInt(nums[2], 10).toString(16),
-          g = parseInt(nums[3], 10).toString(16),
-          b = parseInt(nums[4], 10).toString(16);
-      return "#"+ (
+      var nums = /(.*?)rgb\((\d+),\s*(\d+),\s*(\d+)\)/i.exec(color);
+      if (nums) {
+        var r = parseInt(nums[2], 10).toString(16),
+            g = parseInt(nums[3], 10).toString(16),
+            b = parseInt(nums[4], 10).toString(16);
+        return "#"+ (
           (r.length == 1 ? r + "0" : r) +
           (g.length == 1 ? g + "0" : g) +
           (b.length == 1 ? b + "0" : b)
-      );
+        );
+      }
     }
   </script>
 </polymer-element>
